@@ -39,7 +39,7 @@ public class PenggunaReportGenerator {
         jasperDesign.setQuery(query);
 
         // 3. Add Fields
-        ReportGeneratorHelper.addField(jasperDesign, "id_user", String.class); // Changed to String for USR-XXX format
+        ReportGeneratorHelper.addField(jasperDesign, "id_user", String.class);
         ReportGeneratorHelper.addField(jasperDesign, "username", String.class);
         ReportGeneratorHelper.addField(jasperDesign, "nama_user", String.class);
         ReportGeneratorHelper.addField(jasperDesign, "nama_level", String.class);

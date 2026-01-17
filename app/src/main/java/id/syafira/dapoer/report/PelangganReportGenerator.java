@@ -39,9 +39,7 @@ public class PelangganReportGenerator {
 
         // 3. Add Fields
         // 3. Add Fields
-        ReportGeneratorHelper.addField(jasperDesign, "id_pelanggan", String.class); // Changed to String for PLG-XXX
-                                                                                    // format
-        ReportGeneratorHelper.addField(jasperDesign, "nama", String.class);
+        ReportGeneratorHelper.addField(jasperDesign, "id_pelanggan", String.class);
         ReportGeneratorHelper.addField(jasperDesign, "telepon", String.class);
         ReportGeneratorHelper.addField(jasperDesign, "alamat", String.class);
 

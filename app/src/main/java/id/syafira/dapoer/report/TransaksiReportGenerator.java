@@ -41,9 +41,7 @@ public class TransaksiReportGenerator {
 
                 // 3. Add Fields
                 // 3. Add Fields
-                ReportGeneratorHelper.addField(jasperDesign, "id_transaksi", String.class); // Changed to String for
-                                                                                            // TRX-XXX
-                                                                                            // format
+                ReportGeneratorHelper.addField(jasperDesign, "id_transaksi", String.class);
                 ReportGeneratorHelper.addField(jasperDesign, "tanggal", java.sql.Timestamp.class);
                 ReportGeneratorHelper.addField(jasperDesign, "total_bayar", Integer.class);
 

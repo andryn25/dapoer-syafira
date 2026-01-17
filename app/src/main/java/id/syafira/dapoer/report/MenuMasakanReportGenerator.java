@@ -41,9 +41,7 @@ public class MenuMasakanReportGenerator {
 
                 // 3. Add Fields
                 // 3. Add Fields
-                ReportGeneratorHelper.addField(jasperDesign, "id_masakan", String.class); // Changed to String for
-                                                                                          // MNU-XXX
-                                                                                          // format
+                ReportGeneratorHelper.addField(jasperDesign, "id_masakan", String.class);
                 ReportGeneratorHelper.addField(jasperDesign, "nama_masakan", String.class);
                 ReportGeneratorHelper.addField(jasperDesign, "harga", Integer.class);
                 ReportGeneratorHelper.addField(jasperDesign, "status_masakan", String.class);
