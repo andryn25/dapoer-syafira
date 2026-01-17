@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="id.syafira.dapoer.preloader.PreloaderController"
+      spacing="24" alignment="CENTER"
+      styleClass="login-card" stylesheets="@../css/style.css">
+
+    <VBox alignment="CENTER" spacing="12">
+        <Label text="Dapoer Syafira"
+               styleClass="header-label"/>
+
+        <Label fx:id="statusLabel" text="Memulai..."
+               styleClass="text-muted"
+               wrapText="true" maxWidth="380"/>
+    </VBox>
+
+    <ProgressBar fx:id="progressBar" prefWidth="360" progress="0"
+                 styleClass="progress-bar"/>
+
+    <!-- Error Container -->
+    <VBox fx:id="errorBox" visible="false" managed="false" alignment="CENTER" spacing="20">
+        <Label fx:id="errorLabel" text="" wrapText="true" maxWidth="500" alignment="CENTER" textAlignment="CENTER" styleClass="label-danger"/>
+        <Button fx:id="exitButton" text="Keluar Aplikasi" onAction="#onExit" styleClass="button-danger" prefWidth="200"/>
+    </VBox>
+
+    <Label styleClass="text-muted" text="© 2025 Dapoer Syafira POS System" />
+</VBox>
+

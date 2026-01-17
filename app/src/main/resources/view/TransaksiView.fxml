@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane styleClass="root" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="id.syafira.dapoer.controller.TransaksiController">
+   <children>
+      <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <!-- Form Container -->
+            <SplitPane fx:id="formContainer" dividerPositions="0.6" style="-fx-background-color: transparent; -fx-padding: 16;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <VBox spacing="16.0" styleClass="content-card" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label style="-fx-font-size: 18px;" styleClass="header-label" text="Daftar Order (Belum Bayar)" />
+                              
+                              <TableView fx:id="tableOrder" VBox.vgrow="SOMETIMES">
+                                <columns>
+                                    <TableColumn fx:id="colTglOrder" prefWidth="120.0" text="Tanggal" />
+                                  <TableColumn fx:id="colPelanggan" prefWidth="120.0" text="Pelanggan" />
+                                    <TableColumn fx:id="colTotalOrder" prefWidth="100.0" text="Total" />
+                                </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                              
+                              <Separator prefWidth="200.0" />
+                              
+                              <Label styleClass="sub-header-label" text="Detail Order" />
+                              
+                              <TableView fx:id="tableDetail" VBox.vgrow="ALWAYS">
+                                <columns>
+                                  <TableColumn fx:id="colDetailMenu" prefWidth="75.0" text="Menu Masakan" />
+                                  <TableColumn fx:id="colDetailQty" prefWidth="75.0" text="Jumlah" />
+                                    <TableColumn fx:id="colDetailSubtotal" prefWidth="75.0" text="Subtotal" />
+                                </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                  
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <VBox alignment="TOP_CENTER" spacing="20.0" styleClass="content-card" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <VBox spacing="4">
+                                   <Label style="-fx-font-size: 24px;" styleClass="header-label" text="Pembayaran" />
+                                   <Label fx:id="lblDateTime" styleClass="text-muted" text="YYYY-MM-DD HH:mm:ss" />
+                              </VBox>
+      
+                              <GridPane hgap="12.0" vgap="12.0" VBox.vgrow="NEVER">
+                                <columnConstraints>
+                                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="80.0" />
+                                  <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints vgrow="NEVER" />
+                                  <RowConstraints vgrow="NEVER" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label style="-fx-font-size: 14px;" styleClass="sub-header-label" text="ID User :" />
+                                    <TextField fx:id="fieldIdUser" editable="false" style="-fx-background-color: #F3F4F6;" GridPane.columnIndex="1" />
+                                    <Label style="-fx-font-size: 14px;" styleClass="sub-header-label" text="ID Order :" GridPane.rowIndex="1" />
+                                    <TextField fx:id="fieldIdOrder" editable="false" style="-fx-background-color: #F3F4F6;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                 </children>
+                              </GridPane>
+                              
+                              <VBox alignment="CENTER" spacing="5.0" style="-fx-background-color: #ECFDF5; -fx-background-radius: 8; -fx-padding: 16;">
+                                 <children>
+                                    <Label style="-fx-text-fill: #059669; -fx-font-weight: bold; -fx-font-size: 14px;" text="TOTAL TAGIHAN" />
+                                    <TextField fx:id="fieldTotalBayar" alignment="CENTER" editable="false" promptText="Rp 0" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #059669; -fx-background-color: transparent; -fx-border-width: 0;" />
+                                 </children>
+                              </VBox>
+                              
+                              <Separator prefWidth="200.0" />
+                              
+                              <GridPane hgap="12.0" vgap="12.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints />
+                                </rowConstraints>
+                                 <children>
+                                    <VBox spacing="4">
+                                        <Label style="-fx-font-weight: bold;" text="Uang Bayar" />
+                                        <TextField fx:id="fieldBayar" alignment="CENTER_RIGHT" onKeyTyped="#handleHitungKembalian" promptText="0" style="-fx-font-size: 16px;" />
+                                    </VBox>
+                                    
+                                    <VBox spacing="4" GridPane.columnIndex="1">
+                                        <Label style="-fx-font-weight: bold;" text="Kembalian" />
+                                        <TextField fx:id="fieldKembalian" alignment="CENTER_RIGHT" editable="false" promptText="0" style="-fx-background-color: #F3F4F6; -fx-font-size: 16px;" />
+                                    </VBox>
+                                    
+                                 </children>
+                              </GridPane>
+                              
+                              <Region VBox.vgrow="ALWAYS" />
+                              
+                              <VBox spacing="10.0">
+                                 <children>
+                                    <Button fx:id="btnPayment" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handlePayment" prefHeight="45.0" styleClass="button" text="PROSES PEMBAYARAN">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#handleDelete" prefHeight="45.0" styleClass="button-danger" text="BATALKAN PESANAN" />
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Button fx:id="btnReset" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleReset" styleClass="button-secondary" text="Reset" HBox.hgrow="ALWAYS" />
+                                          <Button fx:id="btnPrint" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handlePrintLast" styleClass="button-secondary" text="Cetak Struk" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+      
+            <!-- Report Container (Hidden by default) -->
+            <BorderPane fx:id="reportContainer" style="-fx-background-color: white;" visible="false">
+               <top>
+                  <HBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #F3F4F6; -fx-padding: 10; -fx-border-color: #E5E7EB; -fx-border-width: 0 0 1 0;">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#handleBackToTransaksi" styleClass="button" text="Kembali ke Transaksi">
+                        </Button>
+                     </children>
+                  </HBox>
+               </top>
+               <center>
+                  <StackPane fx:id="reportPlaceholder" style="-fx-background-color: #E5E7EB;" />
+               </center>
+            </BorderPane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

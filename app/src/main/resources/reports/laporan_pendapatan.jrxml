@@ -1,0 +1,94 @@
+<jasperReport name="LaporanPendapatan" language="java" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="20" bottomMargin="20" uuid="494ca2bc-b0a4-497e-a86a-03b50da05514">
+	<query language="sql"><![CDATA[SELECT DATE(tanggal) as tanggal, COUNT(id_transaksi) as jumlah_transaksi, SUM(total_bayar) as total_pendapatan FROM transaksi GROUP BY DATE(tanggal) ORDER BY tanggal DESC]]></query>
+	<field name="tanggal" class="java.sql.Date"/>
+	<field name="jumlah_transaksi" class="java.lang.Long"/>
+	<field name="total_pendapatan" class="java.lang.Long"/>
+	<variable name="totalTransactions" calculation="Sum" class="java.lang.Long">
+		<expression><![CDATA[$F{jumlah_transaksi}]]></expression>
+	</variable>
+	<variable name="grandTotalRevenue" calculation="Sum" class="java.lang.Long">
+		<expression><![CDATA[$F{total_pendapatan}]]></expression>
+	</variable>
+	<title height="150">
+		<element kind="rectangle" uuid="6c8e1df6-9293-4b23-ab32-9f7ab3da14c5" mode="Opaque" x="0" y="0" width="535" height="90" backcolor="#ECFDF5"/>
+		<element kind="image" uuid="b5e19433-55af-4a94-8788-24c67ea3b140" x="10" y="15" width="60" height="60" scaleImage="RetainShape">
+			<expression><![CDATA[this.getClass().getResource("/images/logo_icon.png")]]></expression>
+		</element>
+		<element kind="staticText" uuid="e4801fb9-eece-4656-afbf-c7502e563274" x="50" y="10" width="445" height="35" forecolor="#10B981" fontSize="20.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[DAPOER SYAFIRA]]></text>
+		</element>
+		<element kind="staticText" uuid="ada4d71b-58cf-45e3-9f96-1cd976e868d6" x="50" y="40" width="445" height="45" fontSize="10.0" hTextAlign="Center">
+			<text><![CDATA[Kp. Sudimampir, Jl. Teratai Rt 03/03 No. 49,
+Kel. Cimanggis, Kec. Bojonggede, Kab. Bogor
+Telp. 0858-8841-2088 Email. lmsas84atsyah@gmail.com]]></text>
+		</element>
+		<element kind="staticText" uuid="28daae05-2da9-441b-938c-af623e1bcff7" x="50" y="110" width="445" height="25" fontSize="16.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[LAPORAN PENDAPATAN]]></text>
+		</element>
+		<element kind="line" uuid="c0df7ed6-6b22-4881-bcc4-88f1e1795e0b" x="0" y="145" width="535" height="1" forecolor="#10B981"/>
+	</title>
+	<columnHeader height="35">
+		<element kind="rectangle" uuid="e7631934-2306-4320-8988-8aadb5b7ddd2" mode="Opaque" x="0" y="0" width="535" height="30" backcolor="#10B981"/>
+		<element kind="staticText" uuid="ce76404a-807e-4a3c-ac8e-fb21a9d28457" x="5" y="8" width="200" height="20" forecolor="#FFFFFF" fontSize="11.0" bold="true">
+			<text><![CDATA[Tanggal]]></text>
+		</element>
+		<element kind="staticText" uuid="9bc5fc8e-7eb7-4096-88be-8f1c594ed739" x="205" y="8" width="150" height="20" forecolor="#FFFFFF" fontSize="11.0" bold="true" hTextAlign="Right">
+			<text><![CDATA[Jumlah Transaksi]]></text>
+		</element>
+		<element kind="staticText" uuid="d0f943ea-df25-4c4c-a5b0-ff49c825ce7a" x="355" y="8" width="175" height="20" forecolor="#FFFFFF" fontSize="11.0" bold="true" hTextAlign="Right">
+			<text><![CDATA[Total Pendapatan]]></text>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="25">
+			<element kind="line" uuid="d51d82a5-4546-4ea3-82e9-73c48bdd6383" x="0" y="24" width="535" height="1" forecolor="#D1FAE5"/>
+			<element kind="textField" uuid="f3075b65-68b5-441e-9bcc-be706b5ebb7c" x="5" y="2" width="200" height="20" fontSize="10.0" pattern="EEEE, dd MMMM yyyy">
+				<expression><![CDATA[$F{tanggal}]]></expression>
+			</element>
+			<element kind="textField" uuid="c59c40f7-6781-40be-b4b4-1b7ec90c570a" x="205" y="2" width="150" height="20" fontSize="10.0" pattern="#,##0" hTextAlign="Right">
+				<expression><![CDATA[$F{jumlah_transaksi}]]></expression>
+			</element>
+			<element kind="textField" uuid="a691efd4-1ea5-43b7-8d69-0dcbca5546c2" x="355" y="2" width="175" height="20" fontSize="10.0" pattern="Rp #,##0" hTextAlign="Right">
+				<expression><![CDATA[$F{total_pendapatan}]]></expression>
+			</element>
+		</band>
+	</detail>
+	<pageFooter height="140">
+		<element kind="line" uuid="4520da16-8879-40f4-a52c-f45f3021c5ee" x="0" y="10" width="535" height="1" forecolor="#D1FAE5"/>
+		<element kind="staticText" uuid="ddd179ea-f6f5-4853-8e5b-d4caee55c91e" x="50" y="20" width="150" height="15" fontSize="9.0" hTextAlign="Center">
+			<text><![CDATA[Jakarta, 08 Januari 2026]]></text>
+		</element>
+		<element kind="staticText" uuid="9707fcc7-8169-467f-be6c-ff714d6954fb" x="50" y="50" width="150" height="15" fontSize="10.0">
+			<text><![CDATA[Mengetahui,]]></text>
+		</element>
+		<element kind="line" uuid="0b861c92-6d8d-4d0d-8d9e-510ef636fb21" x="50" y="105" width="150" height="1"/>
+		<element kind="staticText" uuid="ab8a61a5-7d7b-4ec9-8c9e-7f49683ad0ed" x="50" y="110" width="150" height="15" fontSize="9.0" hTextAlign="Center">
+			<text><![CDATA[(________________)]]></text>
+		</element>
+		<element kind="staticText" uuid="aff6f786-a31d-4cd5-aa36-b259a9afa853" x="350" y="20" width="150" height="15" fontSize="9.0" hTextAlign="Center">
+			<text><![CDATA[Jakarta, 08 Januari 2026]]></text>
+		</element>
+		<element kind="staticText" uuid="13df696d-1150-4959-976e-757d17b461e6" x="350" y="50" width="150" height="15" fontSize="10.0">
+			<text><![CDATA[Dibuat Oleh,]]></text>
+		</element>
+		<element kind="line" uuid="253ac4d3-faba-431e-bb73-632f64394694" x="350" y="105" width="150" height="1"/>
+		<element kind="staticText" uuid="5d1d68d7-dab9-47f5-a399-11f6f972d330" x="350" y="110" width="150" height="15" fontSize="9.0" hTextAlign="Center">
+			<text><![CDATA[(________________)]]></text>
+		</element>
+		<element kind="textField" uuid="a59ce2a2-39e5-4ad0-975f-327e6dd7c0f9" x="0" y="125" width="535" height="10" fontSize="8.0" hTextAlign="Center">
+			<expression><![CDATA["Page " + $V{PAGE_NUMBER}]]></expression>
+		</element>
+	</pageFooter>
+	<summary height="40">
+		<element kind="line" uuid="65acd9f9-63cf-4ca3-903d-632f3f738ed7" x="0" y="5" width="535" height="1" forecolor="#10B981"/>
+		<element kind="staticText" uuid="b3e2f449-bc25-451e-9dc8-4ee62eb4b38c" x="5" y="15" width="200" height="20" fontSize="12.0" bold="true">
+			<text><![CDATA[GRAND TOTAL:]]></text>
+		</element>
+		<element kind="textField" uuid="48179faa-4293-4514-b46f-0c80e40d01e9" x="205" y="15" width="150" height="20" fontSize="12.0" pattern="#,##0" bold="true" hTextAlign="Right">
+			<expression><![CDATA[$V{totalTransactions}]]></expression>
+		</element>
+		<element kind="textField" uuid="f3bb67cd-4e3f-47b4-ae5d-fc5d9c540ce2" x="355" y="15" width="175" height="20" fontSize="12.0" pattern="Rp #,##0" bold="true" hTextAlign="Right">
+			<expression><![CDATA[$V{grandTotalRevenue}]]></expression>
+		</element>
+	</summary>
+</jasperReport>

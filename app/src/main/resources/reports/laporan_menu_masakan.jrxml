@@ -1,0 +1,90 @@
+<jasperReport name="LaporanMenuMasakan" language="java" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="20" bottomMargin="20" uuid="94867f4a-2183-41a8-a42f-6020236f2460">
+	<query language="sql"><![CDATA[SELECT CONCAT('MNU-', LPAD(id_masakan, 3, '0')) as id_masakan, nama_masakan, harga, status_masakan, stok FROM menu_masakan ORDER BY nama_masakan]]></query>
+	<field name="id_masakan" class="java.lang.String"/>
+	<field name="nama_masakan" class="java.lang.String"/>
+	<field name="harga" class="java.lang.Integer"/>
+	<field name="status_masakan" class="java.lang.String"/>
+	<field name="stok" class="java.lang.Integer"/>
+	<title height="150">
+		<element kind="rectangle" uuid="3bd7a509-5b3d-41d6-83f1-0ac27d0daa9b" mode="Opaque" x="0" y="0" width="535" height="90" backcolor="#ECFDF5"/>
+		<element kind="image" uuid="dc4d7d6c-30f0-4486-b6fa-1c652c85e4f2" x="10" y="15" width="60" height="60" scaleImage="RetainShape">
+			<expression><![CDATA[this.getClass().getResource("/images/logo_icon.png")]]></expression>
+		</element>
+		<element kind="staticText" uuid="45c1a970-dd14-4038-896f-fc827d545f5b" x="50" y="10" width="445" height="35" forecolor="#10B981" fontSize="20.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[DAPOER SYAFIRA]]></text>
+		</element>
+		<element kind="staticText" uuid="af76ee15-173d-42dc-96cb-95e636a8d18b" x="50" y="40" width="445" height="45" fontSize="10.0" hTextAlign="Center">
+			<text><![CDATA[Kp. Sudimampir, Jl. Teratai Rt 03/03 No. 49,
+Kel. Cimanggis, Kec. Bojonggede, Kab. Bogor
+Telp. 0858-8841-2088 Email. lmsas84atsyah@gmail.com]]></text>
+		</element>
+		<element kind="staticText" uuid="2774ab2b-a0d7-4838-8a26-1b05aa7039ff" x="50" y="110" width="445" height="25" fontSize="16.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[LAPORAN MENU MASAKAN]]></text>
+		</element>
+		<element kind="line" uuid="fcdec9f7-801b-4998-ab2b-aa1940d7256b" x="0" y="145" width="535" height="1" forecolor="#10B981"/>
+	</title>
+	<columnHeader height="35">
+		<element kind="rectangle" uuid="15d221a6-64e9-4334-a2a2-ae2874911601" mode="Opaque" x="0" y="0" width="535" height="30" backcolor="#10B981"/>
+		<element kind="staticText" uuid="8cc37e1c-ca46-4f3b-b81e-5a932bf8a566" x="5" y="8" width="60" height="20" forecolor="#FFFFFF" fontSize="11.0" bold="true">
+			<text><![CDATA[Kode]]></text>
+		</element>
+		<element kind="staticText" uuid="457d7f85-b1c9-4a8d-add0-81f0bf64e013" x="65" y="8" width="180" height="20" forecolor="#FFFFFF" fontSize="11.0" bold="true">
+			<text><![CDATA[Nama Masakan]]></text>
+		</element>
+		<element kind="staticText" uuid="940c480b-f084-447f-a7b0-4d006913c2a2" x="245" y="8" width="100" height="20" forecolor="#FFFFFF" fontSize="11.0" bold="true" hTextAlign="Right">
+			<text><![CDATA[Harga]]></text>
+		</element>
+		<element kind="staticText" uuid="27583cbc-27d7-49fe-9c05-178cebfc95ad" x="345" y="8" width="90" height="20" forecolor="#FFFFFF" fontSize="11.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Status]]></text>
+		</element>
+		<element kind="staticText" uuid="e8ba6c00-50fa-495a-9111-bad5d1873eac" x="435" y="8" width="95" height="20" forecolor="#FFFFFF" fontSize="11.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Stok]]></text>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="25">
+			<element kind="line" uuid="b2701e7a-9549-414f-a1ed-70c9c490a908" x="0" y="24" width="535" height="1" forecolor="#D1FAE5"/>
+			<element kind="textField" uuid="3ce3cbe0-eb83-469f-8d73-650d4d7c6dd3" x="5" y="2" width="60" height="20" fontSize="10.0">
+				<expression><![CDATA[$F{id_masakan}]]></expression>
+			</element>
+			<element kind="textField" uuid="3396209f-8ac5-4548-9778-ae4b95fd9a35" x="65" y="2" width="180" height="20" fontSize="10.0">
+				<expression><![CDATA[$F{nama_masakan}]]></expression>
+			</element>
+			<element kind="textField" uuid="52eeb1d2-6ec5-4f63-8076-efdb6e32fbd1" x="245" y="2" width="100" height="20" fontSize="10.0" pattern="Rp #,##0" hTextAlign="Right">
+				<expression><![CDATA[$F{harga}]]></expression>
+			</element>
+			<element kind="textField" uuid="1ed9e101-2f04-41c9-bd08-e8f07c3a3ee6" x="345" y="2" width="90" height="20" fontSize="10.0" hTextAlign="Center">
+				<expression><![CDATA[$F{status_masakan}]]></expression>
+			</element>
+			<element kind="textField" uuid="db1f1480-de2b-4f78-970c-a0d47213fb9a" x="435" y="2" width="95" height="20" fontSize="10.0" hTextAlign="Center">
+				<expression><![CDATA[$F{stok}]]></expression>
+			</element>
+		</band>
+	</detail>
+	<pageFooter height="140">
+		<element kind="line" uuid="1e8623c7-f085-41c4-9a3b-8d6d6423daa0" x="0" y="10" width="535" height="1" forecolor="#D1FAE5"/>
+		<element kind="staticText" uuid="c42fd966-9df9-47ef-91a1-478e3549a453" x="50" y="20" width="150" height="15" fontSize="9.0" hTextAlign="Center">
+			<text><![CDATA[Jakarta, 17 Januari 2026]]></text>
+		</element>
+		<element kind="staticText" uuid="9c999eba-74b1-4b83-9cf0-bb5dfca8b011" x="50" y="50" width="150" height="15" fontSize="10.0">
+			<text><![CDATA[Mengetahui,]]></text>
+		</element>
+		<element kind="line" uuid="d0a07235-dec2-4d4d-8498-6ac659a543be" x="50" y="105" width="150" height="1"/>
+		<element kind="staticText" uuid="3c6dda26-fced-49b3-9b60-b3024cb8bc86" x="50" y="110" width="150" height="15" fontSize="9.0" hTextAlign="Center">
+			<text><![CDATA[(________________)]]></text>
+		</element>
+		<element kind="staticText" uuid="28c6c027-3989-4b5d-bcfc-945c947cfcb5" x="350" y="20" width="150" height="15" fontSize="9.0" hTextAlign="Center">
+			<text><![CDATA[Jakarta, 17 Januari 2026]]></text>
+		</element>
+		<element kind="staticText" uuid="a084b470-d280-4b6f-a329-c36fd50dd7cb" x="350" y="50" width="150" height="15" fontSize="10.0">
+			<text><![CDATA[Dibuat Oleh,]]></text>
+		</element>
+		<element kind="line" uuid="b774fd90-4e29-405f-9534-b1f3e979bc6d" x="350" y="105" width="150" height="1"/>
+		<element kind="staticText" uuid="18b09d84-0dbc-487c-b000-e4fd84ee580c" x="350" y="110" width="150" height="15" fontSize="9.0" hTextAlign="Center">
+			<text><![CDATA[(________________)]]></text>
+		</element>
+		<element kind="textField" uuid="732efd06-73f7-4e51-874d-467fe90a03d0" x="0" y="125" width="535" height="10" fontSize="8.0" hTextAlign="Center">
+			<expression><![CDATA["Page " + $V{PAGE_NUMBER}]]></expression>
+		</element>
+	</pageFooter>
+</jasperReport>

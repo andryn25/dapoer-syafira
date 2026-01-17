@@ -1,0 +1,276 @@
+/* ROOT & VARIABLES */
+.root {
+    -fx-base: #F3F4F6;
+    -fx-background-color: #F3F4F6;
+    -fx-font-family: 'Segoe UI', 'Roboto', 'Noto Color Emoji', sans-serif;
+    -fx-font-size: 14px;
+    -fx-text-fill: #1F2937;
+
+    /* Brand Colors */
+    -color-primary: #10B981;
+    -color-primary-hover: #059669;
+    -color-secondary: #34D399;
+    -color-accent: #F59E0B;
+    -color-surface: #FFFFFF;
+    -color-background: #F3F4F6;
+    -color-text: #1F2937;
+    -color-text-light: #6B7280;
+    -color-border: #E5E7EB;
+}
+
+.root.dark-mode {
+    -fx-base: #1F2937;
+    -fx-background-color: #1F2937;
+    -fx-text-fill: #F3F4F6;
+
+    -color-surface: #374151;
+    -color-background: #1F2937;
+    -color-text: #F3F4F6;
+    -color-text-light: #9CA3AF;
+    -color-border: #4B5563;
+}
+
+/* CARDS */
+.card,
+.content-card {
+    -fx-background-color: -color-surface;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 10, 0, 0, 4);
+    -fx-padding: 24;
+}
+
+.login-card {
+    -fx-background-color: -color-surface;
+    -fx-background-radius: 16;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0, 0, 10);
+    -fx-padding: 40;
+    -fx-min-width: 800;
+    -fx-max-width: 800;
+}
+
+/* HEADERS & LABELS */
+.header-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-primary;
+}
+
+.sub-header-label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-text;
+}
+
+.text-muted {
+    -fx-text-fill: -color-text-light;
+}
+
+/* FORMS (TextField, PasswordField) */
+.text-field,
+.password-field,
+.combo-box,
+.text-area {
+    -fx-background-color: -color-surface;
+    -fx-border-color: -color-border;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 10 12;
+}
+
+.text-field:focused,
+.password-field:focused,
+.combo-box:focused {
+    -fx-border-color: -color-primary;
+    -fx-effect: dropshadow(gaussian, rgba(16, 185, 129, 0.2), 4, 0, 0, 0);
+}
+
+/* BUTTONS */
+.button {
+    -fx-background-color: -color-primary;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 10 20;
+    -fx-cursor: hand;
+    -fx-transition: all 0.2s ease;
+}
+
+.button:hover {
+    -fx-background-color: -color-primary-hover;
+    -fx-effect: dropshadow(gaussian, rgba(16, 185, 129, 0.3), 8, 0, 0, 2);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+.button:pressed {
+    -fx-background-color: derive(-color-primary, -20%);
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.1), 2, 0, 0, 1);
+}
+
+.button-secondary {
+    -fx-background-color: white;
+    -fx-text-fill: -color-text;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 8;
+}
+
+.button-secondary:hover {
+    -fx-background-color: #F9FAFB;
+}
+
+.button-danger {
+    -fx-background-color: #EF4444;
+}
+
+.button-danger:hover {
+    -fx-background-color: #DC2626;
+    -fx-effect: dropshadow(gaussian, rgba(220, 38, 38, 0.3), 8, 0, 0, 2);
+}
+
+/* TABLE VIEW */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-background-radius: 8;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 8;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #F9FAFB;
+    -fx-background-radius: 8 8 0 0;
+    -fx-padding: 0 0 4 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-size: 40px;
+    -fx-border-color: transparent transparent -color-border transparent;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: -color-text-light;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-alignment: center-left;
+}
+
+.table-row-cell {
+    -fx-background-color: -color-surface;
+    -fx-border-color: transparent transparent #F3F4F6 transparent;
+    -fx-padding: 4 0;
+    -fx-cell-size: 40px;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #F9FAFB;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: rgba(16, 185, 129, 0.1);
+    -fx-background-insets: 0;
+    -fx-border-color: transparent;
+}
+
+.table-row-cell:selected .text {
+    -fx-fill: -color-primary;
+}
+
+/* MAIN LAYOUT (Sidebar & Header) */
+.sidebar {
+    -fx-background-color: -color-surface;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 10, 0, 4, 0);
+    -fx-padding: 20 10;
+}
+
+.sidebar-item {
+    -fx-background-color: transparent;
+    -fx-background-radius: 8;
+    -fx-padding: 12 16;
+    -fx-cursor: hand;
+    -fx-spacing: 12;
+    -fx-alignment: center-left;
+    -fx-transition: all 0.2s ease;
+}
+
+.sidebar-item:hover {
+    -fx-background-color: #ECFDF5;
+    /* Very light emerald */
+    -fx-scale-x: 1.02;
+    -fx-translate-x: 4;
+}
+
+.sidebar-item:pressed {
+    -fx-background-color: #D1FAE5;
+}
+
+.sidebar-item-active {
+    -fx-background-color: -color-primary;
+    -fx-effect: dropshadow(gaussian, rgba(16, 185, 129, 0.3), 8, 0, 0, 4);
+}
+
+.sidebar-item .label {
+    -fx-text-fill: -color-text;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.sidebar-item-active .label {
+    -fx-text-fill: white;
+}
+
+.sidebar-item-active .image-view {
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.5), 0, 0, 0, 0);
+    /* Trick to maybe brighten icon? Better use white icons */
+}
+
+.top-header {
+    -fx-background-color: linear-gradient(to right, #10B981, #059669);
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: transparent transparent #059669 transparent;
+    -fx-padding: 16 24;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 8, 0, 0, 2);
+}
+
+.top-header .label {
+    -fx-text-fill: white;
+}
+
+.top-header .header-label {
+    -fx-text-fill: white;
+}
+
+.label-danger {
+    -fx-text-fill: #EF4444;
+}
+
+/* PROGRESS BAR */
+.progress-bar {
+    -fx-background-color: transparent;
+}
+
+.progress-bar>.bar {
+    -fx-background-color: -color-primary;
+    -fx-background-insets: 0;
+    -fx-background-radius: 4;
+}
+
+.progress-bar>.track {
+    -fx-background-color: -color-border;
+    -fx-background-insets: 0;
+    -fx-background-radius: 4;
+}
+
+/* OVERLAY & DIALOG */
+.overlay-container {
+    -fx-background-color: rgba(0, 0, 0, 0.6);
+}
+
+.dialog-card {
+    -fx-background-color: -color-surface;
+    -fx-background-radius: 16;
+    -fx-padding: 32;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 20, 0, 0, 10);
+    -fx-min-width: 400;
+    -fx-max-width: 400;
+}
