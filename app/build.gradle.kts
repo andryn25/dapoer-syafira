@@ -23,6 +23,7 @@ dependencies {
     implementation("com.zaxxer:HikariCP:7.0.2")
     implementation("org.slf4j:slf4j-simple:2.0.9")
     implementation("net.sf.jasperreports:jasperreports-jdt:7.0.3")
+    implementation("net.sf.jasperreports:jasperreports-pdf:7.0.3")
 }
 
 java {
