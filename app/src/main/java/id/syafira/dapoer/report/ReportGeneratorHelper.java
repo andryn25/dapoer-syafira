@@ -123,8 +123,7 @@ public class ReportGeneratorHelper {
         footerSeparator.setForecolor(COLOR_BORDER);
         pageFooter.addElement(footerSeparator);
 
-        addSignatureSection(pageFooter, 50, "Mengetahui,", false);
-        addSignatureSection(pageFooter, 350, "Dibuat Oleh,", true);
+        addSignatureSection(pageFooter, 350, "Mengetahui,", true);
 
         JRDesignTextField pageNumber = new JRDesignTextField();
         pageNumber.setExpression(new JRDesignExpression("\"Page \" + $V{PAGE_NUMBER}"));
