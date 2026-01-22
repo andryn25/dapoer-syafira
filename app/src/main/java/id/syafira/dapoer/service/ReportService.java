@@ -15,6 +15,7 @@ import id.syafira.dapoer.report.OrderReportGenerator;
 import id.syafira.dapoer.report.ReceiptReportGenerator;
 import id.syafira.dapoer.util.ReportCompiler;
 import net.sf.jasperreports.engine.JRParameter;
+import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
@@ -180,5 +181,26 @@ public class ReportService {
         params.put("KEMBALIAN", kembali);
 
         return getReportNode(jasperPath, params);
+    }
+
+    /**
+     * Mengekspor laporan ke file PDF.
+     * 
+     * @param jasperPath Path ke file .jasper.
+     * @param params     Parameter laporan.
+     * @param outputPath Path tujuan output file PDF.
+     * @throws Exception Jika terjadi kesalahan saat proses ekspor.
+     */
+    public static void exportToPdf(String jasperPath, java.util.Map<String, Object> params, String outputPath)
+            throws Exception {
+        JasperPrint jasperPrint = fillReport(jasperPath, params);
+        JasperExportManager.exportReportToPdfFile(jasperPrint, outputPath);
+    }
+
+    /**
+     * Mengekspor laporan ke PDF tanpa parameter tambahan.
+     */
+    public static void exportToPdf(String jasperPath, String outputPath) throws Exception {
+        exportToPdf(jasperPath, null, outputPath);
     }
 }
