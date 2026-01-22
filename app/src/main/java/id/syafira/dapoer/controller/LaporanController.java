@@ -8,6 +8,10 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
+import java.io.File;
+import id.syafira.dapoer.report.*;
+import id.syafira.dapoer.util.ReportCompiler;
 
 /**
  * Kontroler untuk modul Laporan (Reports).
@@ -53,6 +57,15 @@ public class LaporanController {
     private BorderPane reportContainer; // Area penampil laporan
     @FXML
     private StackPane reportPlaceholder; // Tempat menyematkan Node JasperReports
+    @FXML
+    private Button btnExportPdf;
+
+    private enum ReportType {
+        MENU, PELANGGAN, USER, TRANSAKSI, TRANSAKSI_DETAIL, ORDER, ORDER_DETAIL, STOK_ALERT, PENJUALAN_MENU,
+        PELANGGAN_SETIA, PENDAPATAN
+    }
+
+    private ReportType currentReportType;
 
     /**
      * Inisialisasi awal UI Laporan.
@@ -112,6 +125,7 @@ public class LaporanController {
     @FXML
     private void handleLaporanMenu() {
         try {
+            currentReportType = ReportType.MENU;
             Node node = ReportService.getMenuMasakanReportNode();
             showReportView(node);
         } catch (Exception e) {
@@ -123,6 +137,7 @@ public class LaporanController {
     @FXML
     private void handleLaporanPelanggan() {
         try {
+            currentReportType = ReportType.PELANGGAN;
             Node node = ReportService.getPelangganReportNode();
             showReportView(node);
         } catch (Exception e) {
@@ -134,6 +149,7 @@ public class LaporanController {
     @FXML
     private void handleLaporanUser() {
         try {
+            currentReportType = ReportType.USER;
             Node node = ReportService.getPenggunaReportNode();
             showReportView(node);
         } catch (Exception e) {
@@ -145,6 +161,7 @@ public class LaporanController {
     @FXML
     private void handleLaporanTransaksi() {
         try {
+            currentReportType = ReportType.TRANSAKSI;
             Node node = ReportService.getTransaksiReportNode();
             showReportView(node);
         } catch (Exception e) {
@@ -156,6 +173,7 @@ public class LaporanController {
     @FXML
     private void handleLaporanTransaksiDetail() {
         try {
+            currentReportType = ReportType.TRANSAKSI_DETAIL;
             Node node = ReportService.getTransaksiDetailReportNode();
             showReportView(node);
         } catch (Exception e) {
@@ -167,6 +185,7 @@ public class LaporanController {
     @FXML
     private void handleLaporanPenjualanMenu() {
         try {
+            currentReportType = ReportType.PENJUALAN_MENU;
             Node node = ReportService.getPenjualanPerMenuReportNode();
             showReportView(node);
         } catch (Exception e) {
@@ -178,6 +197,7 @@ public class LaporanController {
     @FXML
     private void handleLaporanPelangganSetia() {
         try {
+            currentReportType = ReportType.PELANGGAN_SETIA;
             Node node = ReportService.getPelangganSetiaReportNode();
             showReportView(node);
         } catch (Exception e) {
@@ -189,6 +209,7 @@ public class LaporanController {
     @FXML
     private void handleLaporanStokAlert() {
         try {
+            currentReportType = ReportType.STOK_ALERT;
             Node node = ReportService.getStokAlertReportNode();
             showReportView(node);
         } catch (Exception e) {
@@ -200,6 +221,7 @@ public class LaporanController {
     @FXML
     private void handleLaporanPendapatan() {
         try {
+            currentReportType = ReportType.PENDAPATAN;
             Node node = ReportService.getPendapatanReportNode();
             showReportView(node);
         } catch (Exception e) {
@@ -211,6 +233,7 @@ public class LaporanController {
     @FXML
     private void handleLaporanOrder() {
         try {
+            currentReportType = ReportType.ORDER;
             Node node = ReportService.getOrderReportNode();
             showReportView(node);
         } catch (Exception e) {
@@ -222,11 +245,75 @@ public class LaporanController {
     @FXML
     private void handleLaporanOrderDetail() {
         try {
+            currentReportType = ReportType.ORDER_DETAIL;
             Node node = ReportService.getOrderDetailReportNode();
             showReportView(node);
         } catch (Exception e) {
             AlertHelper.showError("Error", "Gagal menampilkan laporan detail pesanan: " + e.getMessage());
             e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void handleExportPdf() {
+        if (currentReportType == null)
+            return;
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Simpan Laporan PDF");
+        fileChooser.setInitialFileName("Laporan_" + currentReportType.name().toLowerCase() + ".pdf");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF Files", "*.pdf"));
+
+        File file = fileChooser.showSaveDialog(reportContainer.getScene().getWindow());
+
+        if (file != null) {
+            try {
+                String jrxmlPath = null;
+                switch (currentReportType) {
+                    case MENU:
+                        jrxmlPath = MenuMasakanReportGenerator.generateJRXML();
+                        break;
+                    case PELANGGAN:
+                        jrxmlPath = PelangganReportGenerator.generateJRXML();
+                        break;
+                    case USER:
+                        jrxmlPath = PenggunaReportGenerator.generateJRXML();
+                        break;
+                    case TRANSAKSI:
+                        jrxmlPath = TransaksiReportGenerator.generateJRXML();
+                        break;
+                    case TRANSAKSI_DETAIL:
+                        jrxmlPath = TransaksiDetailReportGenerator.generateJRXML();
+                        break;
+                    case ORDER:
+                        jrxmlPath = OrderReportGenerator.generateJRXML();
+                        break;
+                    case ORDER_DETAIL:
+                        jrxmlPath = OrderDetailReportGenerator.generateJRXML();
+                        break;
+                    case STOK_ALERT:
+                        jrxmlPath = StokAlertReportGenerator.generateJRXML();
+                        break;
+                    case PENJUALAN_MENU:
+                        jrxmlPath = PenjualanPerMenuReportGenerator.generateJRXML();
+                        break;
+                    case PELANGGAN_SETIA:
+                        jrxmlPath = PelangganSetiaReportGenerator.generateJRXML();
+                        break;
+                    case PENDAPATAN:
+                        jrxmlPath = PendapatanReportGenerator.generateJRXML();
+                        break;
+                }
+
+                if (jrxmlPath != null) {
+                    String jasperPath = ReportCompiler.compile(jrxmlPath);
+                    ReportService.exportToPdf(jasperPath, file.getAbsolutePath());
+                    AlertHelper.showInfo("Laporan berhasil disimpan ke " + file.getAbsolutePath());
+                }
+            } catch (Exception e) {
+                AlertHelper.showError("Export Gagal", "Gagal mengekspor laporan: " + e.getMessage());
+                e.printStackTrace();
+            }
         }
     }
 }
