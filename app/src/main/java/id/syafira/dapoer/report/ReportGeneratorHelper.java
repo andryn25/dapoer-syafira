@@ -123,8 +123,8 @@ public class ReportGeneratorHelper {
         footerSeparator.setForecolor(COLOR_BORDER);
         pageFooter.addElement(footerSeparator);
 
-        addSignatureSection(pageFooter, 50, "Mengetahui,");
-        addSignatureSection(pageFooter, 350, "Dibuat Oleh,");
+        addSignatureSection(pageFooter, 50, "Mengetahui,", false);
+        addSignatureSection(pageFooter, 350, "Dibuat Oleh,", true);
 
         JRDesignTextField pageNumber = new JRDesignTextField();
         pageNumber.setExpression(new JRDesignExpression("\"Page \" + $V{PAGE_NUMBER}"));
@@ -139,20 +139,22 @@ public class ReportGeneratorHelper {
         return pageFooter;
     }
 
-    private static void addSignatureSection(JRDesignBand band, int x, String label) {
-        @SuppressWarnings("deprecation")
-        String currentDate = new SimpleDateFormat("EEEE, dd MMMM yyyy", new java.util.Locale("id", "ID"))
-                .format(new Date());
+    private static void addSignatureSection(JRDesignBand band, int x, String label, boolean showDate) {
+        if (showDate) {
+            @SuppressWarnings("deprecation")
+            String currentDate = new SimpleDateFormat("EEEE, dd MMMM yyyy", new java.util.Locale("id", "ID"))
+                    .format(new Date());
 
-        JRDesignStaticText date = new JRDesignStaticText();
-        date.setText("Jakarta, " + currentDate);
-        date.setX(x);
-        date.setY(20);
-        date.setWidth(150);
-        date.setHeight(15);
-        date.setFontSize(9f);
-        date.setHorizontalTextAlign(HorizontalTextAlignEnum.CENTER);
-        band.addElement(date);
+            JRDesignStaticText date = new JRDesignStaticText();
+            date.setText("Jakarta, " + currentDate);
+            date.setX(x);
+            date.setY(20);
+            date.setWidth(150);
+            date.setHeight(15);
+            date.setFontSize(9f);
+            date.setHorizontalTextAlign(HorizontalTextAlignEnum.CENTER);
+            band.addElement(date);
+        }
 
         JRDesignStaticText signatureLabel = new JRDesignStaticText();
         signatureLabel.setText(label);
