@@ -1,4 +1,4 @@
-<jasperReport name="LaporanPenjualanPerMenu" language="java" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="20" bottomMargin="20" uuid="a685ed93-965a-4c76-a5db-22bab0a7c912">
+<jasperReport name="LaporanPenjualanPerMenu" language="java" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="20" bottomMargin="20" uuid="36c13ca8-ce91-49e6-b904-a591285a2667">
 	<query language="sql"><![CDATA[SELECT CONCAT('MNU-', LPAD(m.id_masakan, 3, '0')) as kode, m.nama_masakan, SUM(do.qty) as total_terjual, SUM(do.subtotal) as total_pendapatan FROM menu_masakan m JOIN detail_order do ON m.id_masakan = do.id_masakan JOIN `order` o ON do.id_order = o.id_order JOIN transaksi t ON o.id_order = t.id_order GROUP BY m.id_masakan, m.nama_masakan ORDER BY total_terjual DESC]]></query>
 	<field name="kode" class="java.lang.String"/>
 	<field name="nama_masakan" class="java.lang.String"/>
@@ -11,90 +11,90 @@
 		<expression><![CDATA[$F{total_pendapatan}]]></expression>
 	</variable>
 	<title height="150">
-		<element kind="rectangle" uuid="7e2bc6e7-d0f2-4247-8cab-f804055fa47b" mode="Opaque" x="0" y="0" width="535" height="90" backcolor="#ECFDF5"/>
-		<element kind="image" uuid="5080800a-6fbd-4ef4-ae98-2942ed9732d0" x="10" y="15" width="60" height="60" scaleImage="RetainShape">
+		<element kind="rectangle" uuid="6ef7c902-35af-4db0-9411-fba2c89ea36f" mode="Opaque" x="0" y="0" width="535" height="90" backcolor="#ECFDF5"/>
+		<element kind="image" uuid="c3b80914-b683-4a36-b081-2bc68fe70680" x="10" y="15" width="60" height="60" scaleImage="RetainShape">
 			<expression><![CDATA[this.getClass().getResource("/images/logo_icon.png")]]></expression>
 		</element>
-		<element kind="staticText" uuid="dd498084-289f-488f-a7f3-66faf85087d0" x="50" y="10" width="445" height="35" forecolor="#10B981" fontSize="20.0" bold="true" hTextAlign="Center">
+		<element kind="staticText" uuid="e6533f19-a158-4d8a-9879-64ab904cadc7" x="50" y="10" width="445" height="35" forecolor="#10B981" fontSize="20.0" bold="true" hTextAlign="Center">
 			<text><![CDATA[DAPOER SYAFIRA]]></text>
 		</element>
-		<element kind="staticText" uuid="3679e31b-0c63-4db8-8b02-6af96fbac9c2" x="50" y="40" width="445" height="45" fontSize="10.0" hTextAlign="Center">
+		<element kind="staticText" uuid="4d963165-92e0-4291-8a4a-38e99f182dea" x="50" y="40" width="445" height="45" fontSize="10.0" hTextAlign="Center">
 			<text><![CDATA[Kp. Sudimampir, Jl. Teratai Rt 03/03 No. 49,
 Kel. Cimanggis, Kec. Bojonggede, Kab. Bogor
 Telp. 0858-8841-2088 Email. lmsas84atsyah@gmail.com]]></text>
 		</element>
-		<element kind="staticText" uuid="e96130ff-4cd0-45c4-874e-0539d45557db" x="50" y="110" width="445" height="25" fontSize="16.0" bold="true" hTextAlign="Center">
+		<element kind="staticText" uuid="aa5b2491-a52a-469f-be53-5c562b7bb49d" x="50" y="110" width="445" height="25" fontSize="16.0" bold="true" hTextAlign="Center">
 			<text><![CDATA[LAPORAN PENJUALAN PER MENU]]></text>
 		</element>
-		<element kind="line" uuid="9c78ae48-33fc-4d26-a803-e4151f1e13c9" x="0" y="145" width="535" height="1" forecolor="#10B981"/>
+		<element kind="line" uuid="0ae4af67-62c4-4e80-8573-23b984f073ec" x="0" y="145" width="535" height="1" forecolor="#10B981"/>
 	</title>
 	<columnHeader height="35">
-		<element kind="rectangle" uuid="573fd3d0-b234-4294-9790-b4aabf39849d" mode="Opaque" x="0" y="0" width="535" height="30" backcolor="#10B981"/>
-		<element kind="staticText" uuid="98c60225-75ed-4d48-882f-b7ef11fc6266" x="5" y="8" width="70" height="20" forecolor="#FFFFFF" fontSize="11.0" bold="true">
+		<element kind="rectangle" uuid="8a470d4a-340a-4db4-ae4a-bc26b1ceb8b7" mode="Opaque" x="0" y="0" width="535" height="30" backcolor="#10B981"/>
+		<element kind="staticText" uuid="1667312e-ab9b-4fc9-a7ef-d53477a821a3" x="5" y="8" width="70" height="20" forecolor="#FFFFFF" fontSize="11.0" bold="true">
 			<text><![CDATA[Kode]]></text>
 		</element>
-		<element kind="staticText" uuid="9721a66b-910c-49ce-9ecc-ca676946ea3f" x="75" y="8" width="250" height="20" forecolor="#FFFFFF" fontSize="11.0" bold="true">
+		<element kind="staticText" uuid="fc2d2e41-ee55-44a4-8084-4ea01b6c6557" x="75" y="8" width="250" height="20" forecolor="#FFFFFF" fontSize="11.0" bold="true">
 			<text><![CDATA[Nama Menu]]></text>
 		</element>
-		<element kind="staticText" uuid="30e1e6a4-d7a6-4b75-8683-2b83c8a7fc72" x="325" y="8" width="100" height="20" forecolor="#FFFFFF" fontSize="11.0" bold="true" hTextAlign="Right">
+		<element kind="staticText" uuid="138a40f1-d9ca-4061-978f-b424201b5dae" x="325" y="8" width="100" height="20" forecolor="#FFFFFF" fontSize="11.0" bold="true" hTextAlign="Right">
 			<text><![CDATA[Terjual]]></text>
 		</element>
-		<element kind="staticText" uuid="4d24bd09-a4d1-494f-ae6c-c4f75a2addd9" x="425" y="8" width="105" height="20" forecolor="#FFFFFF" fontSize="11.0" bold="true" hTextAlign="Right">
+		<element kind="staticText" uuid="bc4550db-fad3-4d97-ab2b-fe229e793ad9" x="425" y="8" width="105" height="20" forecolor="#FFFFFF" fontSize="11.0" bold="true" hTextAlign="Right">
 			<text><![CDATA[Total Pendapatan]]></text>
 		</element>
 	</columnHeader>
 	<detail>
 		<band height="25">
-			<element kind="line" uuid="86b7f5c8-ac32-4460-b4df-a24c62f35e46" x="0" y="24" width="535" height="1" forecolor="#D1FAE5"/>
-			<element kind="textField" uuid="6acb15cd-c639-47ef-9dc5-44c69717ccbf" x="5" y="2" width="70" height="20" fontSize="10.0">
+			<element kind="line" uuid="8c3165fd-5aaf-4922-ad17-4ea1beb71ab5" x="0" y="24" width="535" height="1" forecolor="#D1FAE5"/>
+			<element kind="textField" uuid="5fe170d4-ac6c-4c1c-836b-6ba1eb68e271" x="5" y="2" width="70" height="20" fontSize="10.0">
 				<expression><![CDATA[$F{kode}]]></expression>
 			</element>
-			<element kind="textField" uuid="df5c6153-f188-4c60-bc1e-b1b4184368bc" x="75" y="2" width="250" height="20" fontSize="10.0">
+			<element kind="textField" uuid="9ed3fdc3-ba61-4474-a435-eb37b410c8a9" x="75" y="2" width="250" height="20" fontSize="10.0">
 				<expression><![CDATA[$F{nama_masakan}]]></expression>
 			</element>
-			<element kind="textField" uuid="cdfb0d2d-8292-42e4-801d-9160620e3c9d" x="325" y="2" width="100" height="20" fontSize="10.0" pattern="#,##0" hTextAlign="Right">
+			<element kind="textField" uuid="4942e132-e85d-41f6-8122-1be63ef85eaa" x="325" y="2" width="100" height="20" fontSize="10.0" pattern="#,##0" hTextAlign="Right">
 				<expression><![CDATA[$F{total_terjual}]]></expression>
 			</element>
-			<element kind="textField" uuid="fbaf5c8c-8e04-4051-8333-4e7642be830d" x="425" y="2" width="105" height="20" fontSize="10.0" pattern="Rp #,##0" hTextAlign="Right">
+			<element kind="textField" uuid="d52a86a2-ecfb-4c00-a21e-fde700a5a9b9" x="425" y="2" width="105" height="20" fontSize="10.0" pattern="Rp #,##0" hTextAlign="Right">
 				<expression><![CDATA[$F{total_pendapatan}]]></expression>
 			</element>
 		</band>
 	</detail>
 	<pageFooter height="140">
-		<element kind="line" uuid="9fbd2f65-18da-4ac8-b45e-9477de1b1f25" x="0" y="10" width="535" height="1" forecolor="#D1FAE5"/>
-		<element kind="staticText" uuid="38b24359-fe92-4319-bb33-a57fd6bbc7ac" x="50" y="20" width="150" height="15" fontSize="9.0" hTextAlign="Center">
-			<text><![CDATA[Jakarta, 08 Januari 2026]]></text>
+		<element kind="line" uuid="747e83ba-660b-4e78-b358-a422c2326ea5" x="0" y="10" width="535" height="1" forecolor="#D1FAE5"/>
+		<element kind="staticText" uuid="de8372ca-cf51-44e6-be2c-f07d38eb51a5" x="50" y="20" width="150" height="15" fontSize="9.0" hTextAlign="Center">
+			<text><![CDATA[Jakarta, 22 Januari 2026]]></text>
 		</element>
-		<element kind="staticText" uuid="c1bc9029-b5f4-48f7-b878-5da3bca18d11" x="50" y="50" width="150" height="15" fontSize="10.0">
+		<element kind="staticText" uuid="a066d74f-8b10-4ea4-b5e8-ef9bdc3e64a6" x="50" y="50" width="150" height="15" fontSize="10.0">
 			<text><![CDATA[Mengetahui,]]></text>
 		</element>
-		<element kind="line" uuid="85173857-ab7b-4fd3-a661-346b2770d612" x="50" y="105" width="150" height="1"/>
-		<element kind="staticText" uuid="85c8e5ba-5a9d-474d-969b-057ddaa1ca5c" x="50" y="110" width="150" height="15" fontSize="9.0" hTextAlign="Center">
+		<element kind="line" uuid="d144ef76-01c0-4666-a688-43d5e7f04295" x="50" y="105" width="150" height="1"/>
+		<element kind="staticText" uuid="a40a17d7-386d-4e07-8691-ef625be77e61" x="50" y="110" width="150" height="15" fontSize="9.0" hTextAlign="Center">
 			<text><![CDATA[(________________)]]></text>
 		</element>
-		<element kind="staticText" uuid="d4c4cbb4-a92d-41f2-82fb-363e04e89021" x="350" y="20" width="150" height="15" fontSize="9.0" hTextAlign="Center">
-			<text><![CDATA[Jakarta, 08 Januari 2026]]></text>
+		<element kind="staticText" uuid="7dbee344-e81d-45b4-85bc-3b0eafec5c39" x="350" y="20" width="150" height="15" fontSize="9.0" hTextAlign="Center">
+			<text><![CDATA[Jakarta, 22 Januari 2026]]></text>
 		</element>
-		<element kind="staticText" uuid="d8d40061-e0b9-402c-b92b-c4bae2fc760a" x="350" y="50" width="150" height="15" fontSize="10.0">
+		<element kind="staticText" uuid="2e8906ff-d199-4ee8-ad09-a062ca313e13" x="350" y="50" width="150" height="15" fontSize="10.0">
 			<text><![CDATA[Dibuat Oleh,]]></text>
 		</element>
-		<element kind="line" uuid="88a74176-109d-4761-8bca-071620b47219" x="350" y="105" width="150" height="1"/>
-		<element kind="staticText" uuid="82bc130f-f58e-44fc-a9f8-538558d1262a" x="350" y="110" width="150" height="15" fontSize="9.0" hTextAlign="Center">
+		<element kind="line" uuid="2248cdbf-d431-421d-a213-75104f058aba" x="350" y="105" width="150" height="1"/>
+		<element kind="staticText" uuid="2a6327c3-c837-4e7b-88cc-ab608c0b3450" x="350" y="110" width="150" height="15" fontSize="9.0" hTextAlign="Center">
 			<text><![CDATA[(________________)]]></text>
 		</element>
-		<element kind="textField" uuid="5fdd244a-04fc-46db-81a2-e36dd29e190b" x="0" y="125" width="535" height="10" fontSize="8.0" hTextAlign="Center">
+		<element kind="textField" uuid="617e1618-965d-45fe-a31d-661fde6df365" x="0" y="125" width="535" height="10" fontSize="8.0" hTextAlign="Center">
 			<expression><![CDATA["Page " + $V{PAGE_NUMBER}]]></expression>
 		</element>
 	</pageFooter>
 	<summary height="40">
-		<element kind="line" uuid="a7b5d6b8-19f6-4fba-a47d-b00878a1b153" x="0" y="5" width="535" height="1" forecolor="#10B981"/>
-		<element kind="staticText" uuid="7b2f676c-92ea-46ab-8f30-bcbb6be5e4af" x="75" y="15" width="250" height="20" fontSize="12.0" bold="true">
+		<element kind="line" uuid="1dd2f6ea-1b78-496b-aa6d-5784b7e86af3" x="0" y="5" width="535" height="1" forecolor="#10B981"/>
+		<element kind="staticText" uuid="2b8beac1-3a1c-42d3-b21f-4eab2c4fc73a" x="75" y="15" width="250" height="20" fontSize="12.0" bold="true">
 			<text><![CDATA[TOTAL:]]></text>
 		</element>
-		<element kind="textField" uuid="de6b67b4-41a9-4e90-b9ec-1e82dd3c10df" x="325" y="15" width="100" height="20" fontSize="12.0" pattern="#,##0" bold="true" hTextAlign="Right">
+		<element kind="textField" uuid="b21560e4-935e-480e-a8ad-7c6bc0b63a9b" x="325" y="15" width="100" height="20" fontSize="12.0" pattern="#,##0" bold="true" hTextAlign="Right">
 			<expression><![CDATA[$V{totalQuantity}]]></expression>
 		</element>
-		<element kind="textField" uuid="4356a842-0791-424e-81aa-0119c08093e6" x="425" y="15" width="105" height="20" fontSize="12.0" pattern="Rp #,##0" bold="true" hTextAlign="Right">
+		<element kind="textField" uuid="1694821a-4c02-4441-8cbb-dc8474b7205e" x="425" y="15" width="105" height="20" fontSize="12.0" pattern="Rp #,##0" bold="true" hTextAlign="Right">
 			<expression><![CDATA[$V{totalRevenue}]]></expression>
 		</element>
 	</summary>
