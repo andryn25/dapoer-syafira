@@ -3,27 +3,6 @@
 
 # Ignore Gradle build output directory
 build
-app/src/main/resources/reports/laporan_menu_masakan.jasper
-app/src/main/resources/reports/laporan_menu_masakan.jrxml
-app/src/main/resources/reports/laporan_order_detail.jasper
-app/src/main/resources/reports/laporan_order_detail.jrxml
-app/src/main/resources/reports/laporan_pelanggan_setia.jasper
-app/src/main/resources/reports/laporan_pelanggan_setia.jrxml
-app/src/main/resources/reports/laporan_pelanggan.jasper
-app/src/main/resources/reports/laporan_pelanggan.jrxml
-app/src/main/resources/reports/laporan_pendapatan.jasper
-app/src/main/resources/reports/laporan_pendapatan.jrxml
-app/src/main/resources/reports/laporan_pengguna.jasper
-app/src/main/resources/reports/laporan_pengguna.jrxml
-app/src/main/resources/reports/laporan_penjualan_per_menu.jasper
-app/src/main/resources/reports/laporan_penjualan_per_menu.jrxml
-app/src/main/resources/reports/laporan_pesanan.jasper
-app/src/main/resources/reports/laporan_pesanan.jrxml
-app/src/main/resources/reports/laporan_stok_alert.jasper
-app/src/main/resources/reports/laporan_stok_alert.jrxml
-app/src/main/resources/reports/laporan_struk.jasper
-app/src/main/resources/reports/laporan_struk.jrxml
-app/src/main/resources/reports/laporan_transaksi_detail.jasper
-app/src/main/resources/reports/laporan_transaksi_detail.jrxml
-app/src/main/resources/reports/laporan_transaksi.jasper
-app/src/main/resources/reports/laporan_transaksi.jrxml
+# Ignore compiled Jasper files (hasil kompilasi)
+app/src/main/resources/reports/*.jasper
+
