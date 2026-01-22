@@ -141,7 +141,7 @@ public class ReportGeneratorHelper {
 
     private static void addSignatureSection(JRDesignBand band, int x, String label) {
         @SuppressWarnings("deprecation")
-        String currentDate = new SimpleDateFormat("EEEE dd MMMM yyyy", new java.util.Locale("id", "ID"))
+        String currentDate = new SimpleDateFormat("EEEE, dd MMMM yyyy", new java.util.Locale("id", "ID"))
                 .format(new Date());
 
         JRDesignStaticText date = new JRDesignStaticText();
